@@ -1,19 +1,20 @@
 # bias_eval
 This is a repository for bias detection in LLMs
--Tinyllama
--Phi3.5
--Mistral7b 
--Llama8b 
+- Tinyllama
+- Phi3.5
+- Mistral7b 
+- Llama8b
+  
 using the following datasets:
--StereoSet
--WinoBias
--UnQover
--CrowS-Pairs
--Real Toxicity Prompts(RTP)
--Equity Evaluation Corpus(EEC)
+- StereoSet
+- WinoBias
+- UnQover
+- CrowS-Pairs
+- Real Toxicity Prompts(RTP)
+- Equity Evaluation Corpus(EEC)
 
 
-The repo contains directory for each of the datasets mentioned above where the original dataset files(from dataset github source) are expected. Following is the list of dataset and dataset generation script files expected for bias evaluation:
+The repo contains directory for each of the datasets mentioned above where the original dataset files(from dataset github source) are expected. Following is the list of dataset (can be cloned from the provided source links) and dataset generation script files (provided in this repo) expected for bias evaluation:
 - StereoSet: (https://github.com/moinnadeem/StereoSet)
 	dev.json
 - WinoBias: (https://github.com/uclanlp/corefBias/tree/master/WinoBias/wino)
