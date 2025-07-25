@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>No LLM is Free From Bias</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 2em;
+      line-height: 1.6;
+      background-color: #fdfdfd;
+    }
+    h1, h2 {
+      color: #222;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 0.2em;
+    }
+    h2 {
+      margin-top: 2em;
+    }
+    ul, ol {
+      padding-left: 1.5em;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1em 0;
+      font-size: 0.95em;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 0.5em;
+      text-align: center;
+    }
+    a {
+      color: #0366d6;
+    }
+    code {
+      background: #f4f4f4;
+      padding: 0.2em 0.4em;
+      border-radius: 4px;
+    }
+    .chart-container {
+      margin: 2em 0;
+      text-align: center;
+    }
+    .chart-container img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+    }
+    caption {
+      caption-side: bottom;
+      font-size: 0.9em;
+      color: #555;
+    }
+   
+    .link-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .link-buttons a {
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      border: 1px solid #d0d7de;
+      background-color: #f6f8fa;
+      color: #24292f;
+      font-size: 14px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .link-buttons a:hover {
+      background-color: #eef1f4;
+      border-color: #b1bac4;
+    }
+
+    .link-buttons a:active {
+      background-color: #e2e5e9;
+    }
+
+    .link-buttons a::before {
+      font-size: 1.1em;
+    }
+
+    .email::before { content: "📧"; }
+    .github::before { content: "🔗"; }
+    .paper::before { content: "📄"; }
+  </style>
+</head>
+<body>
+
+<h1>No LLM is Free From Bias</h1>
+<h2>A Comprehensive Study of Bias Evaluation in Large Language Models</h2>
+
+
+
+<p><strong>Authors:</strong> Charaka Vinayak Kumar, Ashok Urlana, Gopichand Kanumolu, Bala Mallikarjunarao Garlapati, Pruthwik Mishra<br>
+<strong>Affiliations:</strong> IIIT Hyderabad, TCS Research, SVNIT Surat<br>
+
+<div class="link-buttons">
+  <a href="mailto:pruthwikmishra@aid.svnit.ac.in" class="email">pruthwikmishra@aid.svnit.ac.in</a>
+  <a href="https://github.com/Pruthwik/bias_eval" class="github" target="_blank">Code Repository</a>
+  <a href="https://arxiv.org/abs/2503.11985" class="paper" target="_blank">Read the Full Paper</a>
+</div>
+</p>
+
+<h2>Abstract</h2>
+<p>
+Advancements in Large Language Models (LLMs) have significantly improved NLU/NLG tasks. However, LLMs often mirror societal biases present in their training data.
+This work provides a unified evaluation across multiple benchmarks and bias categories using small- and medium-sized open-source LLMs.
+</p>
+<p>
+We propose five prompting strategies to detect bias and use standardized metrics to evaluate four LLMs. Datasets such as RealToxicityProimpts were proposed for toxicity 
+detection but their potential in aiding bias detection was under explored. In this work we repurpose and redesign such datasets with custom tasks to bring forthe hidden biases in 
+the popular small to mid sized LLMS. In our study <b>PHI-3.5B</b> is found to be the least biased model.
+</p>
+
+<h2>Biases Across Models</h2>
+<div class="chart-container">
+  <img src="./leadership_ranking_v7.png" alt="Normalized Bias Rank Score Chart for LLMs">
+  <p><em>Figure: Normalized bias rank scores across models. <b>Lower is better.</b></em></p>
+</div>
+
+<h2>Key Contributions</h2>
+<ul>
+  <li>Masked Prediction (Multiple Choice)</li>
+  <li>Masked Prediction (No Choices)</li>
+  <li>Question-Answering</li>
+  <li>Association-based Inference</li>
+  <li>Scoring-Based Emotion Intensity</li>
+</ul>
+
+<h2>Bias Categories Covered</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Dataset</th>
+      <th>Bias Types Covered</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>StereoSet</td><td>Gender, Race, Religion, Profession</td></tr>
+    <tr><td>WinoBias</td><td>Gender</td></tr>
+    <tr><td>UnQover</td><td>Gender, Race, Religion, Nationality</td></tr>
+    <tr><td>CrowS-Pairs</td><td>Gender, Race, Religion, Nationality, Age, Physical Appearence, Socio Economic </td></tr>
+    <tr><td>Real Toxicity Prompts</td><td>Gender, Religion, Race, Profession</td></tr>
+    <tr><td>Equity Evaluation Corpus</td><td>Gender, Race</td></tr>
+  </tbody>
+</table>
+
+<h2>Prompting-Based Approaches</h2>
+<ol>
+  <li>Masked Prediction with Multiple Choice</li>
+  <li>Masked Prediction without Choices</li>
+  <li>Question-Answering with Choices</li>
+  <li>Association-Based Inference</li>
+  <li>Scoring-Based Emotion Intensity</li>
+</ol>
+
+<h2>Experimental Results</h2>
+<ul>
+  <li><strong>Phi-3.5B</strong> showed the least bias overall</li>
+  <li><strong>LL-8B</strong> performed best in socio-economic bias detection</li>
+  <li><strong>MST-7B</strong> shows balanced gender and race evaluations</li>
+  <li>Multi-shot prompting improved fairness in WinoBias</li>
+</ul>
+
+<h2>Bias Ranking by Category (Table 14)</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Aspect</th>
+      <th>Dataset</th>
+      <th>TL-1.1B</th>
+      <th>PHI-3.5B</th>
+      <th>MST-7B</th>
+      <th>LL-8B</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <!-- Gender (6 rows) -->
+    <tr><td rowspan="6">Gender</td><td>StereoSet</td><td>4</td><td>2</td><td>3</td><td>1</td></tr>
+    <tr><td>WinoBias</td><td>4</td><td>3</td><td>1</td><td>2</td></tr>
+    <tr><td>UnQover</td><td>4</td><td>1</td><td>2</td><td>3</td></tr>
+    <tr><td>CrowS-Pairs</td><td>4</td><td>2</td><td>3</td><td>1</td></tr>
+    <tr><td>RTP</td><td>4</td><td>1</td><td>2</td><td>3</td></tr>
+    <tr><td>EEC</td><td>4</td><td>1</td><td>2</td><td>3</td></tr>
+  
+    <!-- Religion (4 rows) -->
+    <tr><td rowspan="4">Religion</td><td>StereoSet</td><td>4</td><td>2</td><td>3</td><td>1</td></tr>
+    <tr><td>UnQover</td><td>4</td><td>1</td><td>2</td><td>3</td></tr>
+    <tr><td>CrowS-Pairs</td><td>4</td><td>3</td><td>2</td><td>1</td></tr>
+    <tr><td>RTP</td><td>4</td><td>1</td><td>2</td><td>3</td></tr>
+  
+    <!-- Race (5 rows) -->
+    <tr><td rowspan="5">Race</td><td>StereoSet</td><td>4</td><td>1</td><td>3</td><td>2</td></tr>
+    <tr><td>UnQover</td><td>4</td><td>2</td><td>3</td><td>1</td></tr>
+    <tr><td>CrowS-Pairs</td><td>4</td><td>3</td><td>2</td><td>1</td></tr>
+    <tr><td>RTP</td><td>4</td><td>2</td><td>1</td><td>3</td></tr>
+    <tr><td>EEC</td><td>4</td><td>1</td><td>2</td><td>3</td></tr>
+  
+    <!-- Profession (2 rows) -->
+    <tr><td rowspan="2">Profession</td><td>StereoSet</td><td>4</td><td>2</td><td>1</td><td>3</td></tr>
+    <tr><td>RTP</td><td>4</td><td>2</td><td>3</td><td>1</td></tr>
+  
+    <!-- Nationality (2 rows) -->
+    <tr><td rowspan="2">Nationality</td><td>UnQover</td><td>4</td><td>3</td><td>2</td><td>1</td></tr>
+    <tr><td>CrowS-Pairs</td><td>4</td><td>1</td><td>2</td><td>3</td></tr>
+  
+    <!-- Age (1 row) -->
+    <tr><td>Age</td><td>CrowS-Pairs</td><td>4</td><td>1</td><td>3</td><td>2</td></tr>
+  
+    <!-- Physical Appearance (1 row) -->
+    <tr><td>Physical Appearance</td><td>CrowS-Pairs</td><td>4</td><td>1</td><td>3</td><td>2</td></tr>
+  
+    <!-- Socio-Economic (1 row) -->
+    <tr><td>Socio-Economic</td><td>CrowS-Pairs</td><td>4</td><td>3</td><td>1</td><td>2</td></tr>
+  </tbody>
+</table>
+<caption><em>Table: Bias ranks (1=least biased, 4=most biased) for each LLM across datasets and categories.</em></caption>
+
+<h2>Ethics Statement</h2>
+<p>
+We use only open-source models and datasets with no intent to offend or harm. This work aims to objectively highlight biases in LLMs and provide actionable insights for mitigation.
+</p>
+
+</body>
+</html>
+
