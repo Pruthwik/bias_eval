@@ -1,4 +1,4 @@
-# bias_eval
+# Bias Evaluation in Large Language Models
 This is a repository for bias detection in LLMs
 - Tinyllama
 - Phi3.5
@@ -35,3 +35,15 @@ The repo contains directory for each of the datasets mentioned above where the o
 - Equity Evaluation Corpus: (https://saifmohammad.com/WebPages/Biases-SA.html)
 	Equity_Evaluation_Corpus.csv
 
+If you find our work useful, please consider citing: 
+
+```
+@inproceedings{kumar2025nollm,
+    title     = {No LLM is Free From Bias: A Comprehensive Study of Bias Evaluation in Large Language Models},
+    author    = {Kumar, Charaka Vinayak and Urlana, Ashok and Kanumolu, Gopichand and Garlapati, Bala Mallikarjunarao and Mishra, Pruthwik},
+    booktitle = {Proceedings of the ECML-PKDD Workshop on Bias and Fairness in AI (BIAS)},
+    year      = {2025},
+    url       = {https://llms-bias.github.io/bias/}
+}
+
+```
